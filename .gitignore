@@ -28,3 +28,4 @@ cgi-bin/
 wp-config.php
 .ddev/
 wp-config-ddev.php
+.idea/
