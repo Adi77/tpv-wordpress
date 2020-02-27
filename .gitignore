@@ -26,3 +26,5 @@ node_modules/
 cgi-bin/
 .htaccess
 wp-config.php
+.ddev/
+wp-config-ddev.php
