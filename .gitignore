@@ -25,4 +25,4 @@ node_modules/
 .well-known/
 cgi-bin/
 .htaccess
-
+wp-config.php
