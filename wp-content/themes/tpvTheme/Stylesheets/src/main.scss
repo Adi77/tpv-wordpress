@@ -6,13 +6,12 @@
 @mixin link-underline($height:2px,$bottom:-10px,$hover:true) {
   background-repeat: repeat-x;
   background-position: bottom;
-  padding-bottom: 4px;
   @if $hover == true {
     &:hover {
-      background-image: url('/wp-content/themes/tpvregionentlebuch/Images/linkbottomline.png');
+      background-image: url('/wp-content/themes/tpvTheme/Images/linkbottomline.png');
     }
   } @else {
-    background-image: url('/wp-content/themes/tpvregionentlebuch/Images/linkbottomline.png');
+    background-image: url('/wp-content/themes/tpvTheme/Images/linkbottomline.png');
   }
 
 }
@@ -55,18 +54,21 @@ a {
 
 h3 {
   font-size: 35px;
-  margin-top: 50px;
+  margin-top: 27px;
   margin-bottom: 30px;
+  font-weight: normal;
 }
 
 h4 {
   margin-top: 30px;
   margin-bottom: 30px;
+  font-weight: normal;
 }
 
 h2 {
   font-size: 50px;
   margin-bottom: 35px;
+  font-weight: normal;
 }
 
 ul {
@@ -102,17 +104,21 @@ i.fa {
  Wordpress specific stuff
  */
 
-.wp-block-file.pdf {
-  position: relative;
-  margin-left: 35px;
+.wp-block-file {
+  margin-bottom: 5px;
+  &.pdf {
+    position: relative;
+    margin-left: 35px;
 
-  &:before {
-    font-family: "FontAwesome";
-    content: ' \F1C1';
-    left: -31px;
-    position: absolute;
+    &:before {
+      font-family: "FontAwesome";
+      content: ' \F1C1';
+      left: -31px;
+      position: absolute;
+    }
   }
 }
+
 
 .wp-block-image {
   img {
@@ -122,6 +128,12 @@ i.fa {
 }
 
 .wp-block-column {
+  ul, ol {
+    margin-bottom: 30px;
+    li {
+      margin-bottom: 5px;
+    }
+  }
   @include media-breakpoint-up(sm) {
     h4 {
       &:nth-child(1) {
@@ -139,7 +151,7 @@ i.fa {
 }
 
 main {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/theme-bg-top.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/theme-bg-top.png');
   background-position: center 100vh;
   background-position: center calc(var(--vh, 1vh) * 100);
   background-size: 100%;
@@ -159,6 +171,12 @@ main {
         padding-bottom: 80px;
       }
     }
+  }
+  p, em {
+    line-height: $line-height;
+  }
+  a {
+    padding-bottom: 3px;
   }
 }
 
@@ -195,11 +213,12 @@ section {
   @extend .text-center;
   @extend .mx-auto;
   @extend .text-uppercase;
-  font-size: 25px;
+  font-family: $font-family-main;
+  font-size: 20px;
   padding-top: 48px;
   padding-bottom: 48px;
   @include media-breakpoint-down(sm) {
-    font-size: 22px;
+    font-size: 16px;
     padding-top: 60px;
     padding-bottom: 25px;
   }
@@ -353,14 +372,20 @@ section {
 
     .organisation-logo {
       .tpvlogo {
-        height: 44px;
-        width: 45px;
+        vertical-align: top;
+        height: 56px;
+        display: block;
+        padding: 0;
+        padding-bottom: 3px;
       }
     }
 
     .organisation-name {
       font-size: 1rem;
-      top: -10px;
+      top: 0;
+      > span {
+        font-size:12px;
+      }
     }
 
     > div {
@@ -381,7 +406,7 @@ section {
         .navbar-collapse {
           .navbar-nav {
             @include media-breakpoint-down(md) {
-              margin-top: 30px;
+              margin-top: 22px;
             }
           }
 
@@ -417,9 +442,12 @@ section {
       }
     }
   }
+.organisation-logo, .organisation-name{
+  display: inline-block;
 
+}
   .organisation-logo {
-    transition: all 0.4s ease-out;
+
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
 
@@ -430,29 +458,41 @@ section {
       }
       .tpvlogo {
         transition: all 0.4s ease;
-        width: 66px;
         @include media-breakpoint-down(xs) {
-
           width: 62px;
         }
+      }
+      svg {
+        vertical-align: top;
+        height: 88px;
+        display: block;
+        padding: 15px 0 9px;
       }
     }
   }
 
   .organisation-name {
+    font-family: $font-family-titles;
+    line-height: 1.1;
     transition: all 0.4s ease-out;
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
-    line-height: normal;
-    display: inline-flex;
     position: relative;
-    top: -12px;
+    top: -7px;
     left: 12px;
     font-size: 22px;
-    transition: all 0.4s ease;
     @include media-breakpoint-down(xs) {
       left: 8px;
       font-size: 1.15rem;
+    }
+    > span {
+      font-family: $font-family-subtitles;
+      transition: all 0.4s ease-out;
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      font-size:16px;
+      position: relative;
+      top: -4px;
     }
   }
 
@@ -545,7 +585,6 @@ section {
           position: fixed;
           left: 0;
           right: 0;
-          margin: 0 15px;
         }
         @include media-breakpoint-down(xs) {
           right: 0;
@@ -561,9 +600,9 @@ section {
           .nav-item {
             white-space: nowrap;
             .nav-link {
+              font-family: $font-family-main;
               padding-left: 0;
               padding-right: 0;
-              padding-bottom: 4px;
               margin: 0 .5rem;
 
               &.active {
@@ -575,12 +614,11 @@ section {
 
         @include media-breakpoint-down(md) {
           .navbar-nav {
-            margin-top: 41px;
+            box-shadow: 0 1rem 1rem rgba(black, .275);
+            margin-top: 22px;
             flex-direction: column;
-            padding: 10px;
-            background-color: black;
-            opacity: 0.8;
-            border-radius: .25rem;
+            padding: 20px 20px 30px;
+            background-color: $blue-bg-color;
 
             .nav-item {
               margin-right: 5px;
@@ -592,7 +630,7 @@ section {
                 font-size: 25px;
                 text-align: right;
                 display: inline-block;
-                padding: 5px 10px;
+                padding: 5px 0;
                 margin: 0;
 
                 @include link-underline(0);
@@ -626,7 +664,7 @@ section {
   left: 0;
   width: 100%;
 
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/topBigImage2-opt.jpg');
+  background-image: url('/wp-content/themes/tpvTheme/Images/topBigImage2-opt.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -702,7 +740,7 @@ i {
 
         p {
           position: absolute;
-          top: 89%;
+          top: 83%;
           left: 100%;
           transform: translate(-100%, -89%);
           opacity: 0.8;
@@ -711,6 +749,7 @@ i {
             transform: translate(-100%, -70%);
           }
           width: 100%;
+          font-family: $font-family-main;
           color: $blue-bg-color;
           font-weight: $font-weight-bold;
           text-align: left;
@@ -718,7 +757,7 @@ i {
           @include media-breakpoint-down(md) {
             padding-left:20px;
           }
-          line-height: $line-height;
+          line-height: 1.05;
           text-shadow: 2px 2px 15px white;
           //text-shadow: -3px 2px $brown-bg-color, 2px 3px $brown-bg-color, 3px 2px $brown-bg-color, 2px -3px $brown-bg-color;
           font-size: 53px;
@@ -727,6 +766,7 @@ i {
           }
 
           span.sloganBigWord {
+            //text-transform: uppercase;
             font-size: 75px;
             @include media-breakpoint-down(sm) {
               font-size: 50px;
@@ -740,7 +780,6 @@ i {
               text-decoration: none;
             }
           }
-
           span {
             font-size: 24px;
             display: block;
@@ -773,7 +812,7 @@ i {
 }
 
 .products {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/theme-bg-top-2.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/theme-bg-top-2.png');
   background-position: center bottom;
   background-size: 100%;
 
@@ -801,6 +840,78 @@ i {
           margin-top: 27px;
         }
       }
+
+
+.heading-abgebende {
+  &.slide-left {
+    -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+}
+
+      .heading-tagesfamilien {
+        &.slide-right {
+          -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+
+      }
+
+
+
+
+      /* ----------------------------------------------
+ * Generated by Animista on 2019-10-6 12:8:15
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info.
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+      /**
+       * ----------------------------------------
+       * animation slide-left
+       * ----------------------------------------
+       */
+      @-webkit-keyframes slide-left {
+        0% {
+          -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
+        }
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+      }
+      /* ----------------------------------------------
+       * Generated by Animista on 2019-10-6 12:19:18
+       * Licensed under FreeBSD License.
+       * See http://animista.net/license for more info.
+       * w: http://animista.net, t: @cssanimista
+       * ---------------------------------------------- */
+
+      /**
+       * ----------------------------------------
+       * animation slide-right
+       * ----------------------------------------
+       */
+      @-webkit-keyframes slide-right {
+        0% {
+          -webkit-transform: translateX(300px);
+          transform: translateX(300px);
+        }
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+      }
+
+
+
+
+
+
+
 
       .btn-tpv-products {
         background-color: $grey-blue-bg-color;
@@ -846,6 +957,7 @@ i {
 
         div {
           font-size: 35px;
+          font-family: $font-family-main;
           @include media-breakpoint-down(xs) {
             font-size: 30px;
           }
@@ -858,19 +970,19 @@ i {
           &:after {
             position: absolute;
             content: ' \f105';
-            right: 0;
+            right: 12px;
             left: inherit;
             top: -1px;
             font-family: "FontAwesome";
             width: 34px;
-            font-size: 43px;
+            font-size: 57px;
             visibility: visible;
             background-color: initial;
           }
 
           &[aria-expanded="true"] {
             &:after {
-              right: 9px;
+              right: 30px;
               content: ' \f107';
             }
           }
@@ -915,7 +1027,7 @@ i {
         h4 {
           margin-bottom: 20px;
           @include media-breakpoint-up(sm) {
-            margin-top: 50px;
+            margin-top: 25px;
             &:first-child {
               margin-top: 15px;
             }
@@ -938,7 +1050,7 @@ i {
 }
 
 .green-grass-bg {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/grass-bg.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/grass-bg.png');
   background-size: 20%;
   @include media-breakpoint-down(lg) {
     background-size: 29%;
@@ -950,7 +1062,7 @@ i {
 }
 
 .car-bg {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/car-bg.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/car-bg.png');
   background-size: 20%;
   @include media-breakpoint-down(lg) {
     background-size: 30%;
@@ -962,7 +1074,7 @@ i {
 }
 
 .shapes-bg {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/shapes-bg.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/shapes-bg.png');
   background-size: 20%;
   @include media-breakpoint-down(lg) {
     background-size: 30%;
@@ -974,7 +1086,7 @@ i {
 }
 
 .seesaw-bg {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/seesaw-bg.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/seesaw-bg.png');
   background-size: 20%;
   @include media-breakpoint-down(lg) {
     background-size: 30%;
@@ -986,7 +1098,7 @@ i {
 }
 
 .duck-bg {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/duck-bg.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/duck-bg.png');
   background-size: 20%;
   @include media-breakpoint-down(lg) {
     background-size: 30%;
@@ -998,7 +1110,7 @@ i {
 }
 
 .cookie-bg {
-  background-image: url('/wp-content/themes/tpvregionentlebuch/Images/cookie-bg.png');
+  background-image: url('/wp-content/themes/tpvTheme/Images/cookie-bg.png');
   background-size: 20%;
   @include media-breakpoint-down(lg) {
     background-size: 30%;
@@ -1014,6 +1126,9 @@ i {
 }
 
 .testimonials {
+  h3 {
+    margin: 10px 0 30px;
+  }
   @include media-breakpoint-down(xs) {
     h3 {
       margin: 30px 0 30px;
@@ -1175,10 +1290,10 @@ i {
 /* stylelint-disable selector-list-comma-newline-after */
 
 
-/* Debug only */
+/* Debug only
 body:after {
   display: block;
-  clear: both; /* if you need to break floating elements */
+  clear: both;
   bottom: 0;
   right: 0;
   position: fixed;
@@ -1238,3 +1353,4 @@ body:after {
     color: white;
   }
 }
+*/

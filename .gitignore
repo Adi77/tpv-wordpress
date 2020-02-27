@@ -29,3 +29,5 @@ wp-config.php
 .ddev/
 wp-config-ddev.php
 .idea/
+.DS_Store
+wp-content/themes/tpvTheme/package-lock.json
