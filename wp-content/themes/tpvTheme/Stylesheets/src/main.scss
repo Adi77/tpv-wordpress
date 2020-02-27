@@ -381,11 +381,9 @@ section {
     }
 
     .organisation-name {
-      font-size: 1rem;
-      top: 0;
-      > span {
-        font-size:12px;
-      }
+      height: 66px;
+      width: 104px;
+      top: 2px;
     }
 
     > div {
@@ -478,8 +476,15 @@ section {
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
     position: relative;
-    top: -7px;
+
     left: 12px;
+
+
+    height: 61px;
+    width: 125px;
+    top: -7px;
+
+
     font-size: 22px;
     @include media-breakpoint-down(xs) {
       left: 8px;
@@ -623,7 +628,7 @@ section {
             .nav-item {
               margin-right: 5px;
               margin-bottom: 5px;
-              text-align: center;
+              text-align: right;
 
               .nav-link {
 

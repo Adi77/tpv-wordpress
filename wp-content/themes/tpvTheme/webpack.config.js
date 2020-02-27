@@ -103,7 +103,7 @@ module.exports = {
       ]
     }),
     new LiveReloadPlugin({
-      appendScriptTag: false
+      appendScriptTag: true
     })
   ],
   optimization: {
