@@ -1,0 +1,59 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-tpv-guten-blocks {
+  background: #bada55;
+  border: 0.2rem solid #292929;
+  color: #292929;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem; }
+
+.wp-block {
+  max-width: inherit; }
+
+.accordionNameInput .components-base-control__field input {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+.wp-block-tpv-image-and-text-element .leftCol, .wp-block-tpv-image-and-text-element .rightCol {
+  width: 49%;
+  display: inline-block; }
+
+.wp-block-tpv-image-and-text-element .leftCol {
+  float: left; }
+
+.wp-block-tpv-image-and-text-element .rightCol .block-editor-inner-blocks {
+  padding: 0 25px; }
+
+.wp-block-tpv-image-and-text-element .switchRight {
+  float: right; }
+
+.wp-block-tpv-image-and-text-element .switchLeft {
+  float: left; }
+
+.wp-block-tpv-image-and-text-element .button-container {
+  background-color: rgba(139, 139, 150, 0.1);
+  height: 200px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.wp-block-tpv-testimonials-carousel-item .leftCol, .wp-block-tpv-testimonials-carousel-item .rightCol {
+  width: 49%;
+  text-align: center;
+  display: inline-block; }

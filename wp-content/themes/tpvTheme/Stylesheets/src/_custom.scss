@@ -1,0 +1,45 @@
+
+//
+// Sass Variables
+//
+$font-family-main: 'Source Sans Pro', sans-serif;
+$font-family-icons: 'FontAwesome';
+$font-main-size:18px;
+$font-weight-bold:700;
+$font-weight-regular:400;
+$font-weight-light:300;
+$font-color:#dddddd;
+$shadow-color:#dddddd;
+$link-color-content-text:#c33939;
+$line-height: 1.5;
+$font-color-inactive-el:rgba(145,145,145,0.6);
+$blue-bg-color: #0d519d;
+$dark-blue-bg-color:#132943;
+$grey-blue-bg-color:#2a3e56;
+$grass-green-bg-color:#2e874b;
+$brown-bg-color:#47320e;
+$gold-bg-color:#9c7e2e;
+$grey-bg-color:#5d6877;
+$dark-grey-bg-color:#1a1a1a;
+$bordeaux-bg-color:#3f261f; //4a2020;
+$dark-grey-blue-color:#1f4756;
+$dark-green-color:#1d362a;
+
+
+$spacer: 1rem;
+$spacers: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    6: ($spacer * 3)
+    ),
+  $spacers
+  );
+
+
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 960px,
+  xl: 1140px
+);
